@@ -11,7 +11,7 @@ exclude:
   - "@old"
 baseurl: ""
 url: "https://korlibs.soywiz.com"
-edit_root_url: https://github.com/korlibs/korge/blob/main/docs/
+edit_root_url: https://github.com/korlibs/docs.korge.org/blob/main/
 blog_url: ""
 project_url: https://github.com/korlibs
 google_search_id: 001447907640164080602:ej0h0w0ufr0
