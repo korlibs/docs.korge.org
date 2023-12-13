@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"bca4c2ceba66d431","type":"text","text":"korlibs-datastructure","x":-320,"y":-300,"width":225,"height":70},
+		{"id":"2070f4759be17ea1","x":-332,"y":-124,"width":250,"height":60,"type":"text","text":"korlibs-math"}
+	],
+	"edges":[
+		{"id":"2b267892fd070449","fromNode":"bca4c2ceba66d431","fromSide":"bottom","toNode":"2070f4759be17ea1","toSide":"top"}
+	]
+}

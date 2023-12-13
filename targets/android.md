@@ -1,14 +1,12 @@
 ---
+title: Android
 permalink: /targets/android/
 group: targets
 layout: default
-title: "Android"
 title_prefix: KorGE Targets
 fa-icon: fa-mobile
 priority: 30
-#status: new
 ---
-
 The Android target uses the Kotlin JVM. It consumes and generates intermediate `.class` files,
 to end generating portable Android `APK`, or Android `AAR` packages
 with no external dependencies, nor native per-platform native code, also supports

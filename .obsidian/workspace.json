@@ -11,8 +11,10 @@
             "id": "6d4dcb688f3de535",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "image",
+              "state": {
+                "file": "korlibs-deps-tpl.svg"
+              }
             }
           }
         ]
@@ -81,6 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "korlibs-deps-tpl.svg",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "korlibs-deps-tpl.svg",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +122,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "korlibs-deps-tpl.svg"
+              }
             }
           }
         ]
@@ -139,8 +145,30 @@
   },
   "active": "6d4dcb688f3de535",
   "lastOpenFiles": [
+    "source code.md",
+    "korlibs-deps-tpl.svg",
+    "korlibs-deps-tpl.canvas",
+    "Untitled 1.canvas",
+    "korlibs-deps.md",
+    "data-structures/maps.md",
+    "math/vector.md",
+    "io/vfs.md",
+    "io/aasync.md",
+    "io/astreams.md",
+    "io/encoding.md",
+    "io/lang.md",
+    "io/charset.md",
+    "io/compression.md",
+    "time/test.md",
+    "time/format.md",
+    "getting-started/index.md",
+    "aliases/korge-gettingstarted.md",
+    "targets/android.md",
+    "math/bignum.md",
+    "aliases/kbignum.md",
+    "i/logo.svg",
+    "templates/extending.md",
     "io/index.md",
-    "2023-12-01.md",
-    "io/astreams.md"
+    "2023-12-01.md"
   ]
 }
