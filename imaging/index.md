@@ -20,8 +20,6 @@ Also allows to use native image loaders for the fastest performance.
 
 {% include stars.html project="korge" central="com.soywiz.korlibs.korim/korim" %}
 
-
-
 ## Pages
 
 {% include toc.html context="/korim/" %}

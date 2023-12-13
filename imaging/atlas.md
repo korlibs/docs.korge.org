@@ -31,7 +31,7 @@ val atlas = resourcesVfs["file.atlas"].readAtlas(asumePremultiplied = false)
 
 `MutableAtlas` is a class for generating an atlas that supports adding more slices over the time. Because of that, the packaging might not be optimal.
 
-> You should try to add bigger images first, and sort them descendently for the best results
+> For the best results, it is recommended to add bigger images first, for example sorting them descendently by area
 
 ### Construction
 
