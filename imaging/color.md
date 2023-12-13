@@ -8,7 +8,6 @@ description: KorIM support several color formats, packed inline classes and conv
 fa-icon: fa-palette
 priority: 10
 ---
-
 ## ColorFormat
 
 All color formats implements the `ColorFormat` interface.

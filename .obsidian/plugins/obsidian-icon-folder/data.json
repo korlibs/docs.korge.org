@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "IbMusic",
-      "RiWindowFill",
-      "TiReload",
-      "LiFileImage",
-      "FasFilePrescription"
+      "🖼",
+      "🧮",
+      "📐",
+      "TiMathSymbols",
+      "🗜"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -30,7 +30,7 @@
   "imaging/bitmap.md": "🖼",
   "imaging/color.md": "🖌",
   "imaging": "🖼",
-  "math": "🔢",
+  "math": "🧮",
   "time": "🕐",
   "tutorials": "👩‍🏫",
   "views": "RiCodeView",
@@ -99,5 +99,18 @@
   "reference/resources.md": "LiFileImage",
   "reference/hot-reloading.md": "TiReload",
   "reference/gamewindow.md": "RiWindowFill",
-  "reference/audio.md": "IbMusic"
+  "reference/audio.md": "IbMusic",
+  "scenes": "🖼",
+  "imaging/fonts.md": "FasFont",
+  "imaging/text.md": "IbText",
+  "imaging/vector.md": "TiVectorBezier2",
+  "imaging/index.md": "FarImage",
+  "imaging/format.md": "LiFileImage",
+  "io/astreams.md": "RiFlowChart",
+  "io/sstreams.md": "RiFlowChart",
+  "io/serialization.md": "TiRestore",
+  "io/index.md": "LiBinary",
+  "io/encoding.md": "SiConvertio",
+  "math/index.md": "TiMath",
+  "math/utils.md": "TiMathSymbols"
 }
