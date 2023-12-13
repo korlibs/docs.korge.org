@@ -11,9 +11,11 @@
             "id": "6d4dcb688f3de535",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "korlibs-deps-tpl.svg"
+                "file": "io/compression.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -46,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "compression",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -63,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -83,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "korlibs-deps-tpl.svg",
+                "file": "io/compression.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "korlibs-deps-tpl.svg",
+                "file": "io/compression.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "korlibs-deps-tpl.svg"
+                "file": "io/compression.md"
               }
             }
           }
@@ -131,7 +134,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -145,15 +149,16 @@
   },
   "active": "6d4dcb688f3de535",
   "lastOpenFiles": [
-    "source code.md",
+    "io/aasync.md",
+    "_includes/bottom_desc.md",
     "korlibs-deps-tpl.svg",
+    "source code.md",
     "korlibs-deps-tpl.canvas",
     "Untitled 1.canvas",
     "korlibs-deps.md",
     "data-structures/maps.md",
     "math/vector.md",
     "io/vfs.md",
-    "io/aasync.md",
     "io/astreams.md",
     "io/encoding.md",
     "io/lang.md",
