@@ -31,7 +31,7 @@ jobs:
     steps:
       - { name: Checkout, uses: actions/checkout@v3 }
       - { name: Setup Pages, uses: actions/configure-pages@v3 }
-      - { name: Build with Jekyll, uses: actions/jekyll-build-pages@v1, with: { source: ./docs, destination: ./_site } }
+      - { name: Build with Jekyll, uses: actions/jekyll-build-pages@v1, with: { source: ./, destination: ./_site } }
       - { name: Check broken links, run: "npx --yes broken-link-checker-local _site --filter-level=3 -e -r" }
 
   # Build job
