@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "math/utils.md",
+                "file": "views/views-input.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "class KeysEvents",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,11 +65,12 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 203.5
   },
   "right": {
     "id": "59bc338dc566784c",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "math/utils.md",
+                "file": "views/views-input.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "math/utils.md",
+                "file": "views/views-input.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,16 +126,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "math/utils.md"
+                "file": "views/views-input.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,8 +149,17 @@
   },
   "active": "59a0d87ce96a06a1",
   "lastOpenFiles": [
-    "math/Untitled.canvas",
+    "io/index.md",
+    "reference/resources.md",
+    "io.md",
+    "reference/testing.md",
+    "templates/filters.md",
+    "templates/extending.md",
+    "about/faq.md",
+    "about/jam.md",
+    "about/contributing.md",
     "math/utils.md",
+    "math/Untitled.canvas",
     "math/index.md",
     "io/encoding.md",
     "io/sstreams.md",
@@ -166,7 +176,6 @@
     "data-structures/algo.md",
     "getting-started/index.md",
     "index.md",
-    "scenes/scenes.md",
     "i/facebook.svg",
     "i/file_drag_and_drop.webm",
     "i/googleplus.svg",
@@ -175,15 +184,8 @@
     "i/onCollision.webm",
     "i/onCollisionShape.webm",
     "i/onCollisionShapeImage.webm",
-    "io/compression.md",
-    "io/aasync.md",
-    "_includes/bottom_desc.md",
     "korlibs-deps-tpl.svg",
-    "source code.md",
     "korlibs-deps-tpl.canvas",
-    "Untitled 1.canvas",
-    "korlibs-deps.md",
-    "data-structures/maps.md",
-    "math/vector.md"
+    "Untitled 1.canvas"
   ]
 }

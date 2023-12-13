@@ -7,8 +7,11 @@ title_prefix: KorGE
 fa-icon: fa-gamepad
 priority: 30
 ---
+## Input State vs Events
 
-## Accessing input state
+There are two ways of handling input events. One is by checking the input state, and the other is event-based.
+
+### Accessing input state
 
 The `Input` singleton contains the stage of the input values at a time.
 It is updated once per frame. You can get it from the `Views` or the `Stage` singletons. 
@@ -17,7 +20,15 @@ It is updated once per frame. You can get it from the `Views` or the `Stage` sin
 val input = views.input
 ```
 
-### Mouse
+### Events
+
+KorGE provides a high level API to handle events attaching events to a View.
+The events are only triggered when the associated View is attached to the stage.
+Views have several extension methods to attach events to them. Which method depends on each kind of event.
+
+## Mouse/Touch Events
+
+### Mouse Input State
 
 ```kotlin
 view.addUpdater {
@@ -26,52 +37,7 @@ view.addUpdater {
 }
 ``` 
 
-### Multi-touch
-
-```kotlin
-view.addUpdater {
-    val ntouches: Int = input.activeTouches.size
-    val touches: List<Touch> = input.activeTouches
-    val rawTouch0: Touch = input.touches[0]
-}
-``` 
-
-### Keys
-
-```kotlin
-
-import com.soywiz.klock.milliseconds
-
-import com.soywiz.klogger.Console
-
-import com.soywiz.korev.Key
-
-view.addUpdater { timespan: TimeSpan ->
-    val scale = timespan / 16.milliseconds
-    if (input.keys[Key.LEFT]) x -= 2.0 * scale  // Same as `input.keys.pressing(Key.LEFT)`
-    if (input.keys.pressing(Key.RIGHT)) x += 2.0 * scale
-    if (input.keys.justPressed(Key.ESCAPE)) views.gameWindow.close(0)
-    if (input.keys.justReleased(Key.ENTER)) Console.info("I'm working!")
-}
-```
-
-### Gamepads
-
-```kotlin
-view.addUpdater {
-    val gamepads = input.connectedGamepads
-    val rawGamepad0 = input.gamepads[0]
-    val pressedStart: Boolean = rawGamepad0[GameButton.START]
-    val pos: Point = rawGamepad0[GameStick.LEFT]
-}
-```
-
-## Event-based High-level API
-
-KorGE provides a high level API to handle events attaching events to a View.
-The events are only triggered when the associated View is attached to the stage.
-
-### Mouse/Touch Events
+### Mouse Events
 
 You can handle `click`, `over` (hover), `out`, `down`, `downFromOutside`, `up`, `upOutside`, `upAnywhere`, `move`, `moveAnywhere`, `moveOutside` and `exit` mouse events.
 
@@ -98,9 +64,37 @@ or
 view.onClick { /*...*/ } // suspending block
 ```
 
+### Multi-touch Events
+
+```kotlin
+view.addUpdater {
+    val ntouches: Int = input.activeTouches.size
+    val touches: List<Touch> = input.activeTouches
+    val rawTouch0: Touch = input.touches[0]
+}
+``` 
+
+## Keys
+
+### Keys Input State
+
+```kotlin
+import com.soywiz.klock.milliseconds
+import com.soywiz.klogger.Console
+import com.soywiz.korev.Key
+
+view.addUpdater { timespan: TimeSpan ->
+    val scale = timespan / 16.milliseconds
+    if (input.keys[Key.LEFT]) x -= 2.0 * scale  // Same as `input.keys.pressing(Key.LEFT)`
+    if (input.keys.pressing(Key.RIGHT)) x += 2.0 * scale
+    if (input.keys.justPressed(Key.ESCAPE)) views.gameWindow.close(0)
+    if (input.keys.justReleased(Key.ENTER)) Console.info("I'm working!")
+}
+```
+
 ### Keys Events
 
-For example:
+To handle any key:
 
 ```kotlin
 // Matches any key
@@ -109,6 +103,14 @@ view.keys {
     up { e -> /*...*/ }
 }
 
+// Or as a shortcut
+view.onKeyUp { e -> /*...*/ } // suspending block
+view.onKeyDown { e -> /*...*/ } // suspending block
+```
+
+To handle only a specific key event:
+
+```kotlin
 // Matches just one key
 view.keys {
     // Executes when the key is down. Depending on the platform this might trigger multiple events. Use justDown to trigger it only once.
@@ -128,10 +130,22 @@ view.keys {
     // Useful for UIs, the code is executed every half a second at first, and then every 100 milliseconds doing an acceleration.
     downRepeating(Key.LEFT) { e -> /*...*/ }
 }
-view.onKeyDown { e -> /*...*/ } // suspending block
+
 ```
 
-### Gamepad Events
+## Gamepads
+
+### Gamepads Input State
+
+```kotlin
+view.addUpdater {
+    val gamepads = input.connectedGamepads
+    val rawGamepad0 = input.gamepads[0]
+    val pressedStart: Boolean = rawGamepad0[GameButton.START]
+    val pos: Point = rawGamepad0[GameStick.LEFT]
+}
+```
+### Gamepads Events
 
 ```kotlin
 view.gamepad {
@@ -144,173 +158,18 @@ view.gamepad {
 }
 ```
 
-## Handling RAW events via Components
-
-You can handle RAW input by creating components that handle events
-and attaching to a view.
-
-```kotlin
-// Executes once per frame
-interface UpdateComponent : Component {
-    fun update(ms: Double)
-}
-
-// New version of UpdateComponent
-interface UpdateComponentV2 : UpdateComponent {
-    override fun update(dt: HRTimeSpan)
-}
-
-// Handling all the Events
-interface EventComponent : Component {
-    fun onEvent(event: Event)
-}
-
-// Handling just Input Events
-interface TouchComponent : Component {
-    fun onTouchEvent(views: Views, e: TouchEvent)
-}
-
-interface MouseComponent : Component {
-    fun onMouseEvent(views: Views, event: MouseEvent)
-}
-
-interface KeyComponent : Component {
-    fun onKeyEvent(views: Views, event: KeyEvent)
-}
-
-interface GamepadComponent : Component {
-    fun onGamepadEvent(views: Views, event: GamePadButtonEvent)
-    fun onGamepadEvent(views: Views, event: GamePadStickEvent)
-    fun onGamepadEvent(views: Views, event: GamePadConnectionEvent)
-}
-```
-
-## Stage event dispatching
-
-The stage singleton receives raw events.
-You can call `stage.addEventListener`.
-
-NOTE: Remember to remove the event listener once finished with it.
-Since you are adding it to the root node, it won't be collected automatically.
+## On stage resizing
 
 Example:
 
 ```kotlin
-stage.addEventListener<ReshapeEvent> { e ->
+view.onStageResized { width, height ->
+	// ...
+}
+
+view.onEvent(ViewsResizedEvent) {
 }
 ``` 
-
-Available event types:
-
-* `MouseEvent`
-* `TouchEvent`
-* `ReshapeEvent`
-* `KeyEvent`
-* `GamePadConnectionEvent`
-* `GamePadUpdateEvent`
-* `GamePadButtonEvent`
-* `GamePadStickEvent`
-
-## APIs
-
-### Mouse
-
-```kotlin
-// Configuring MouseEvents
-val View.mouse: MouseEvents
-inline fun <T> View.mouse(callback: MouseEvents.() -> T): T = mouse.run(callback)
-
-// Shortcuts
-inline fun <T : View?> T.onClick(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onOver(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onOut(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onDown(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onDownFromOutside(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onUp(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onUpOutside(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onUpAnywhere(noinline handler: suspend (MouseEvents) -> Unit): T
-inline fun <T : View?> T.onMove(noinline handler: suspend (MouseEvents) -> Unit): T
-
-class MouseEvents(override val view: View) : MouseComponent, UpdateComponentWithViews {
-    val click = Signal<MouseEvents>()
-    val over = Signal<MouseEvents>()
-    val out = Signal<MouseEvents>()
-    val down = Signal<MouseEvents>()
-    val downFromOutside = Signal<MouseEvents>()
-    val up = Signal<MouseEvents>()
-    val upOutside = Signal<MouseEvents>()
-    val upAnywhere = Signal<MouseEvents>()
-    val move = Signal<MouseEvents>()
-    val moveAnywhere = Signal<MouseEvents>()
-    val moveOutside = Signal<MouseEvents>()
-    val exit = Signal<MouseEvents>()
-    
-    val startedPos = Point()
-    val lastPos = Point()
-    val currentPos = Point()
-    
-    val hitTest: View?
-    
-    var downPos = Point()
-    var upPos = Point()
-    var clickedCount = 0
-    val isOver: Boolean
-}
-```
-
-### Keys
-
-
-```kotlin
-// Configuring KeysEvents
-val View.keys: KeysEvents
-inline fun <T> View.keys(callback: KeysEvents.() -> T): T
-
-// Shortcuts
-inline fun <T : View?> T?.onKeyDown(noinline handler: suspend (KeyEvent) -> Unit)
-inline fun <T : View?> T?.onKeyUp(noinline handler: suspend (KeyEvent) -> Unit)
-inline fun <T : View?> T?.onKeyTyped(noinline handler: suspend (KeyEvent) -> Unit)
-
-class KeysEvents(override val view: View) : KeyComponent {
-    val onKeyDown = AsyncSignal<KeyEvent>()
-    val onKeyUp = AsyncSignal<KeyEvent>()
-    val onKeyTyped = AsyncSignal<KeyEvent>()
-    
-    // Handlers for a specific Key 
-    fun down(key: Key, callback: (key: Key) -> Unit): Closeable
-    fun up(key: Key, callback: (key: Key) -> Unit): Closeable
-    fun typed(key: Key, callback: (key: Key) -> Unit): Closeable
-    
-    // Handlers for any keys
-    fun down(callback: (key: Key) -> Unit): Closeable
-    fun up(callback: (key: Key) -> Unit): Closeable
-    fun typed(callback: (key: Key) -> Unit): Closeable
-}
-```
-
-### Gamepad
-
-```kotlin
-// Configuring GamePadEvents
-val View.gamepad: GamePadEvents
-inline fun <T> View.gamepad(callback: GamePadEvents.() -> T): T
-
-class GamePadEvents(override val view: View) : GamepadComponent {
-	val stick = Signal<GamePadStickEvent>()
-	val button = Signal<GamePadButtonEvent>()
-	val connection = Signal<GamePadConnectionEvent>()
-
-	fun stick(playerId: Int, stick: GameStick, callback: (x: Double, y: Double) -> Unit)
-	fun down(playerId: Int, button: GameButton, callback: () -> Unit)
-	fun up(playerId: Int, button: GameButton, callback: () -> Unit)
-	fun connected(playerId: Int, callback: () -> Unit)
-	fun disconnected(playerId: Int, callback: () -> Unit)
-	override fun onGamepadEvent(views: Views, event: GamePadButtonEvent)
-	override fun onGamepadEvent(views: Views, event: GamePadStickEvent)
-	override fun onGamepadEvent(views: Views, event: GamePadConnectionEvent)
-}
-
-```
 
 ## Handling Drag & Drop File Events
 

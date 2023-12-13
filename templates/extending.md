@@ -10,8 +10,6 @@ priority: 70
 
 It is possible to extend KorTE with new tags, functions and filters.
 
-
-
 {% raw %}
 
 ## Extending

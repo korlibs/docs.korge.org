@@ -139,11 +139,12 @@ try to test as much as possible without using views at all.
 If you represent your game as states and state transitions, you can then display those
 actions with animations and tweens. And you can convert user interactions into actions.
 
-```nomnoml
-[States]
-[User Interactions] -> [User Actions]
-[User Actions] -> [State Transitions]
-[State Transitions] -> [View Animations]
+```mermaid
+graph LR;
+States["States"];
+UserInteractions["User Interactions"] --> UserActions["User Actions"];
+UserActions["User Actions"] --> StateTransitions["State Transitions"];
+StateTransitions["State Transitions"] --> ViewAnimations["View Animations"];
 ```
 
 For example:
