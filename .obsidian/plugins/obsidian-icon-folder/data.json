@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
-      "🖼",
-      "🧮",
-      "📐",
-      "TiMathSymbols",
-      "🗜"
+      "RiTreeLine",
+      "IbTreeMapDown1",
+      "TiBlur",
+      "LiGamepad2",
+      "TiMapCode"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -112,5 +112,23 @@
   "io/index.md": "LiBinary",
   "io/encoding.md": "SiConvertio",
   "math/index.md": "TiMath",
-  "math/utils.md": "TiMathSymbols"
+  "math/utils.md": "TiMathSymbols",
+  "reference/logger.md": "LiWrapText",
+  "reference/kproject.md": "RiShareFill",
+  "reference/physics.md": "TiBallBowling",
+  "reference/atlas.md": "TiPictureInPicture",
+  "reference/entrypoint.md": "TiHomePlus",
+  "getting-started/install.md": "IbDownload",
+  "getting-started/korge.md": "BoBxsInvader",
+  "getting-started/index.md": "LiHome",
+  "getting-started/tips.md": "FarLightbulb",
+  "data-structures/index.md": "IbDatabse",
+  "scenes/scenes.md": "TiTransitionRight",
+  "targets/index.md": "FasMobileScreen",
+  "views/custom-rendering.md": "FasDrawPolygon",
+  "views/filters.md": "TiBlur",
+  "views/tile-maps.md": "TiMapCode",
+  "views/views-input.md": "LiGamepad2",
+  "views/views.md": "IbTreeMapDown1",
+  "views/views-standard.md": "RiTreeLine"
 }
