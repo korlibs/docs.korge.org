@@ -20,6 +20,8 @@ where you can check the view tree and the properties of each view.
 
 ### `@ViewProperty`
 
+![](/i/ViewPropertyAnnotation.avif)
+
 In order for a View property to appear in the JVM debug panel, we should annotate the property with the `@ViewProperty` annotation. For numbers, it is possible to specify the basic range, and if the value can be clamped or not among other properties.
 
 ```kotlin
