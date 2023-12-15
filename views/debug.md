@@ -2,10 +2,11 @@
 permalink: /views/debug/
 group: views
 layout: default
-title: "Debug"
+title: Debug
 title_prefix: KorGE
 fa-icon: fa-bug
 priority: 36
+version_review: 5.2.0
 ---
 
 Sometimes it is hard to figure out what's going on when the views doesn't look as expected.
