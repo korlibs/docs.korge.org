@@ -2,10 +2,11 @@
 permalink: /views/custom-rendering/
 group: views
 layout: default
-title: "Custom Rendering"
+title: Custom Rendering
 title_prefix: KorGE
 fa-icon: far fa-paint-roller
 priority: 300
+version_review: 5.2.0
 ---
 
 While provided views are usually enough for most cases,
