@@ -83,12 +83,19 @@ import com.soywiz.klock.milliseconds
 import com.soywiz.klogger.Console
 import com.soywiz.korev.Key
 
+// Triggered on every frame
 view.addUpdater { timespan: TimeSpan ->
     val scale = timespan / 16.milliseconds
-    if (input.keys[Key.LEFT]) x -= 2.0 * scale  // Same as `input.keys.pressing(Key.LEFT)`
+    
+	// True when the key is pressing; same as `input.keys.pressing(Key.LEFT)`
+	if (input.keys[Key.LEFT]) x -= 2.0 * scale
     if (input.keys.pressing(Key.RIGHT)) x += 2.0 * scale
+    
+	// True only in one frame when the key started to be pressed
     if (input.keys.justPressed(Key.ESCAPE)) views.gameWindow.close(0)
-    if (input.keys.justReleased(Key.ENTER)) Console.info("I'm working!")
+    
+	// True once in one frame when the key released (finished pressing)
+	if (input.keys.justReleased(Key.ENTER)) Console.info("I'm working!")
 }
 ```
 

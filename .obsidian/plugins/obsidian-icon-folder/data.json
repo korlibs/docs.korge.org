@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "FasDisplay",
+      "🖥",
+      "🗺",
       "RiTreeLine",
-      "IbTreeMapDown1",
-      "TiBlur",
-      "LiGamepad2",
-      "TiMapCode"
+      "IbTreeMapDown1"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -130,5 +130,7 @@
   "views/tile-maps.md": "TiMapCode",
   "views/views-input.md": "LiGamepad2",
   "views/views.md": "IbTreeMapDown1",
-  "views/views-standard.md": "RiTreeLine"
+  "views/views-standard.md": "RiTreeLine",
+  "roadmap": "🗺",
+  "roadmap/targets.canvas": "FasDisplay"
 }
