@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "TiBallBowling",
       "FasDisplay",
       "🖥",
       "🗺",
-      "RiTreeLine",
-      "IbTreeMapDown1"
+      "RiTreeLine"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -132,5 +132,6 @@
   "views/views.md": "IbTreeMapDown1",
   "views/views-standard.md": "RiTreeLine",
   "roadmap": "🗺",
-  "roadmap/targets.canvas": "FasDisplay"
+  "roadmap/targets.canvas": "FasDisplay",
+  "views/custom-effects.md": "TiBallBowling"
 }
