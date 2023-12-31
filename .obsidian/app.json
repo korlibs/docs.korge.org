@@ -8,5 +8,6 @@
   "attachmentFolderPath": "i",
   "useMarkdownLinks": true,
   "newLinkFormat": "absolute",
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": true,
+  "alwaysUpdateLinks": true
 }

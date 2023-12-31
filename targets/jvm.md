@@ -2,23 +2,18 @@
 permalink: /targets/desktop/
 group: targets
 layout: default
-title: "Desktop (JVM)"
+title: Desktop (JVM)
 title_short: Desktop
 fa-icon: fa-laptop
 priority: 10
-#status: new
+version_review: 5.2.0
 ---
 
-It supports **Java 8** and greater. This should be the preferred target while developing.
+It supports **Java 17** and greater, ideally 21 or greater. This should be the preferred target while developing.
 
-Uses the Kotlin JVM backend, generating JVM bytecode and executing the code
-on the Java Virtual Machine.
+Uses the Kotlin JVM backend, generating JVM bytecode and executing the code on the Java Virtual Machine.
 
-This integrates pretty well on the IDEs, have fast building and startup times,
-and provides a great tools like a better debugging experience. All these features
-makes it the best target for debugging and trying things fast.
-
-
+This integrates pretty well on the IDEs, have fast building and startup times, and provides a great tools like a better debugging experience. All these features makes it the best target for debugging and trying things fast.
 
 ## Entrypoint
 
@@ -26,8 +21,6 @@ While other targets use `korge { entrypoint = "main" }`, the JVM target
 uses its own `jvmMainClassName` property indicating the class
 that will contain the main entry point.
 It defaults to `MainKt` referencing the package-less root `main.kt` file:
-
-<!-- @TODO: https://github.com/korlibs/korge-plugins/issues/9 -->
 
 ```kotlin
 korge {
@@ -72,14 +65,16 @@ Gradlew tasks:
 ./gradlew runJvmEditor
 ./gradlew runJvmDebug
 ```
+
 ## Executing
 
 For running, use the gradle task:
 
 ```bash
+./gradlew runJvmAutoreload
+# if you don't want hotreloading
 ./gradlew runJvm
 ```
-
 ## Testing
 
 For executing tests on the JVM only, use the gradle task:
@@ -88,7 +83,7 @@ For executing tests on the JVM only, use the gradle task:
 ./gradlew jvmTest
 ```
 
-## Packaging
+## Packaging / deployment / publishing
 
 For creating a FatJAR, use the gradle task:
 
@@ -106,15 +101,21 @@ You can find the jar files in the `build/libs` folder.
 Full jar files should have the `-all.jar` suffix,
 while the proguarded ones, `-all-proguard.jar`.
 
-## Reducing pause times
+To include an embedded runtime use the tasks:
 
-Starting with Java 14, all major targets support ZGC, that should
-make GC pauses to be less than 10ms.
+```bash
+./gradlew packageJvmWindowsApp
+./gradlew packageJvmLinuxApp
+./gradlew packageJvmMacosApp
+```
 
-<https://wiki.openjdk.java.net/display/zgc/Main>
+In the case of windows, it generates `build/platforms/jvm-win32` with an embedded Java 21 JRE, a `.ico` and a `.exe`:
+![](/i/packageJvmWindowsApp.png)
 
-You can enable it with `-XX:+UnlockExperimentalVMOptions -XX:+UseZGC`.
+In the case of linux, it generates a `.desktop`, the icon of the game and a fat jar `build/platforms/jvm-linux` final users you will need to have a jre installed that are typically available on each platform package managers:
+![](/i/packageJvmLinuxApp.png)
 
-<!-- TODO -->
+And in the case of macos, it generates a .app with all the required stuff bundeld in the `build/platforms/jvm-macos` folder:
+![](/i/packageJvmMacosApp.png)
 
-Future KorGE versions will enable this by default on supported Java versions.
+> **Note:** if launching the task throws an error, in KorGE 5.2.0 and older, there is an [issue](https://github.com/korlibs/korge/issues/2098). You can circumvent it by commenting `#org.gradle.configuration-cache=true`  in the `gradle.properties`. This will be fixed in later versions.
