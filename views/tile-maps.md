@@ -10,6 +10,7 @@ status: incomplete
 version_review: 5.3.0
 ---
 KorGE supports TileMaps and TileSets. This feature supports drawing a matrix with a lot of similar elements in equidistant positions in a grid, including rendering only the elements visible in the screen.
+It can be used standalone or via [Tiled](https://docs.korge.org/store_proxy/?url=/module/korge-tiled/), [LDtk](https://docs.korge.org/store_proxy/?url=/module/korge-ldtk/#) or other tile engines implemented in KorGE.
 ## Basic Support
 
 KorGE supports tilesets and sparse stackable/layered tilemaps and offset support. That serves as a foundation for other Tile engines to be implemented like Tiled or LDtk. Those engines are provided in the store as separate libraries.
