@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "TiDecimal",
       "IbDownload",
       "⬆",
       "TiBallBowling",
-      "FasDisplay",
-      "🖥"
+      "FasDisplay"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -133,5 +133,6 @@
   "views/views-standard.md": "RiTreeLine",
   "roadmap": "🗺",
   "roadmap/targets.canvas": "FasDisplay",
-  "views/custom-effects.md": "TiBallBowling"
+  "views/custom-effects.md": "TiBallBowling",
+  "math/fixed-point.md": "TiDecimal"
 }
