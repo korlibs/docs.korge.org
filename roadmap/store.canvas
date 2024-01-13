@@ -1,20 +1,20 @@
 {
 	"nodes":[
-		{"id":"9b463203ec8dbb79","type":"text","text":"autopublishing","x":100,"y":-140,"width":173,"height":60},
+		{"id":"9b463203ec8dbb79","type":"text","text":"autopublishing","x":100,"y":-140,"width":173,"height":60,"color":"1"},
 		{"id":"371496c7c3f83974","type":"text","text":"Public / Private repos","x":117,"y":-20,"width":140,"height":60},
-		{"id":"bed84222b104d2ce","x":250,"y":148,"width":250,"height":60,"type":"text","text":"Setup **Webhook** triggered for github Releases"},
 		{"id":"6969d599fa99c5df","x":-63,"y":148,"width":250,"height":60,"type":"text","text":"Add a **github user** with permissions or **Deploy key**"},
-		{"id":"d80c6300aa56bbcb","x":-380,"y":148,"width":250,"height":60,"type":"text","text":"create a manifest file describing the artifact + README"},
-		{"id":"a116dad6d9b56194","x":250,"y":380,"width":250,"height":60,"type":"text","text":"Download code and generate an artifact stored encrypted"},
-		{"id":"2f619c574e61ed53","x":249,"y":597,"width":250,"height":60,"type":"text","text":"triggers an update in the landing page"},
-		{"id":"d226e0754a2a2296","type":"text","text":"korge user locally (korge gradle plugin)","x":299,"y":820,"width":200,"height":60},
+		{"id":"d80c6300aa56bbcb","x":-380,"y":148,"width":250,"height":112,"type":"text","text":"create a manifest file describing the artifact + README"},
+		{"id":"d226e0754a2a2296","type":"text","text":"korge user locally (korge gradle plugin)","x":299,"y":820,"width":200,"height":60,"color":"1"},
 		{"id":"8d3678f5a65ae76c","x":273,"y":972,"width":250,"height":60,"type":"text","text":"Provide token via file. Maybe a task like ./gradlew login"},
 		{"id":"f74fde8a46dfbc64","type":"text","text":"id.korge.org","x":740,"y":972,"width":200,"height":60},
-		{"id":"1967f806b54c5fb7","type":"text","text":"HOW TO GROW AND SCALE THE STORE","x":400,"y":-300,"width":200,"height":80},
 		{"id":"11ac8e6b1bbae876","x":740,"y":380,"width":250,"height":277,"type":"text","text":"Generate AES-128 key from the SHA256 of the file to be encrypted. Either by using a private key or by generating and storing it in a database. If private key is used, we should be able to recover if the private key is leaked and use a new one for new artifacts."},
 		{"id":"f00ffc39d082bdba","x":740,"y":922,"width":250,"height":50,"type":"text","text":"Store API"},
 		{"id":"9717bb979b352561","type":"text","text":"Request file to store.korge.org + request decryption key to te backend.\nDownload file once, then store it in the repo as a folder or as a zip file. Also store it locally in the machine.\n","x":273,"y":1120,"width":250,"height":120},
-		{"id":"fdfac4a391bbde13","type":"text","text":"store.korge.org","x":-240,"y":1150,"width":200,"height":60}
+		{"id":"fdfac4a391bbde13","type":"text","text":"store.korge.org","x":-240,"y":1150,"width":200,"height":60},
+		{"id":"bed84222b104d2ce","x":-63,"y":260,"width":250,"height":60,"type":"text","text":"Setup **Webhook** triggered for github Releases"},
+		{"id":"a116dad6d9b56194","x":-63,"y":380,"width":250,"height":60,"type":"text","text":"Download code and generate an artifact stored encrypted"},
+		{"id":"2f619c574e61ed53","x":-63,"y":519,"width":250,"height":77,"type":"text","text":"triggers an update in the landing page"},
+		{"id":"1967f806b54c5fb7","type":"text","text":"## HOW TO GROW AND SCALE THE STORE\n\nPeople have their repositories with a manifest, and registers a webhook and gives permission to a github user / deploy key. This should work both for private and publish repositories.\n\nThen id.korge.org or a similar services generates encryption keys and provides decryption keys of artifacts based on some criteria. We should take into account other users knowing the SHA-256, being able to regenerate the key somehow. Maybe we can also use asymmetric cryptography instead? Or that for writing we send something, and for reading we send another thing. In the end the thing that was sent for generating the key must be kept secret os other people cannot regenerate to obtain the key.\n\nWe have a workflow or something either in github or the server that triggers getting the release, generating a .zip, encrypting or storing it somewhere decrypted. The store is updated or a Pull Request is generated to be validated by a human.\n","x":610,"y":-460,"width":380,"height":780}
 	],
 	"edges":[
 		{"id":"ad580005edacd774","fromNode":"9b463203ec8dbb79","fromSide":"bottom","toNode":"371496c7c3f83974","toSide":"top"},
@@ -27,8 +27,9 @@
 		{"id":"bd9f48ef08e50c9d","fromNode":"8d3678f5a65ae76c","fromSide":"right","toNode":"f74fde8a46dfbc64","toSide":"left","label":"generate token"},
 		{"id":"80a339c23570ef72","fromNode":"f00ffc39d082bdba","fromSide":"top","toNode":"11ac8e6b1bbae876","toSide":"bottom"},
 		{"id":"146bf2620f02751f","fromNode":"9717bb979b352561","fromSide":"right","toNode":"f74fde8a46dfbc64","toSide":"left","label":"request decryption key"},
-		{"id":"795c5e72182f46f4","fromNode":"9717bb979b352561","fromSide":"left","toNode":"fdfac4a391bbde13","toSide":"right","label":"request\nencrypted\nfile"},
+		{"id":"795c5e72182f46f4","fromNode":"9717bb979b352561","fromSide":"left","toNode":"fdfac4a391bbde13","toSide":"right","label":"request\nencrypted\nfile\n\nGithub Pages\n/ CDN"},
 		{"id":"e585b3faaa9ff46d","fromNode":"8d3678f5a65ae76c","fromSide":"bottom","toNode":"9717bb979b352561","toSide":"top"},
-		{"id":"ca3ee0314e8949f9","fromNode":"a116dad6d9b56194","fromSide":"right","toNode":"11ac8e6b1bbae876","toSide":"left"}
+		{"id":"ca3ee0314e8949f9","fromNode":"a116dad6d9b56194","fromSide":"right","toNode":"11ac8e6b1bbae876","toSide":"left"},
+		{"id":"bed4c96646f6ff74","fromNode":"2f619c574e61ed53","fromSide":"bottom","toNode":"fdfac4a391bbde13","toSide":"top","label":"stores\nthe\nencrypted file"}
 	]
 }
