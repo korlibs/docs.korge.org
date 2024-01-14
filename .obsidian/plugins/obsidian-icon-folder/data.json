@@ -6,11 +6,11 @@
     "emojiStyle": "twemoji",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "FasCodeMerge",
       "TiDecimal",
       "IbDownload",
       "⬆",
-      "TiBallBowling",
-      "FasDisplay"
+      "TiBallBowling"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -134,5 +134,6 @@
   "roadmap": "🗺",
   "roadmap/targets.canvas": "FasDisplay",
   "views/custom-effects.md": "TiBallBowling",
-  "math/fixed-point.md": "TiDecimal"
+  "math/fixed-point.md": "TiDecimal",
+  "getting-started/contributing.md": "FasCodeMerge"
 }
