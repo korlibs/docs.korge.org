@@ -15,7 +15,10 @@ KorGE implementation supports an arbitrary number of fixed and scalable sections
 ## 9-patches from IntelliJ (`.9.png`)
 
 IntelliJ 9 patches can be created directly in the IDE. They have the `.9.png` extension. From a base image, by right-clicking, you can click on the `create 9-patch file` action, then dragging the borders of the image, you can define the parts of the image that should be keep unscaled or not, in the X and Y axes.
-![](/i/9patch-noaudio.webm)By code, to read a nine patch, you can use:
+
+{% include autoplay_video.html src="/i/9patch-noaudio.webm" %}
+
+By code, to read a nine patch, you can use:
 
 ```kotlin
 ninePatch(resourcesVfs["roundrect.9.png"].readNinePatch()).xy(0, 32)
@@ -25,7 +28,10 @@ And when setting the size (width and height), the borders will be kept as expect
 
 And using it in code looks like this:
 ![](/i/Pasted%20image%2020240115113603.png)
-![](/i/9patch-use.webm)That `.9.png` is just a plan image that has an extra border of 1 pixel on top, left, right and bottom, defining the scalable sections by axis, and content sections, like this:
+
+{% include autoplay_video.html src="/i/9patch-use.webm" %}
+
+That `.9.png` is just a plan image that has an extra border of 1 pixel on top, left, right and bottom, defining the scalable sections by axis, and content sections, like this:
 ![](/i/Pasted%20image%2020240115112442.png)
  
 > Note that content information is currently not implemented, but will be implemented in future versions.

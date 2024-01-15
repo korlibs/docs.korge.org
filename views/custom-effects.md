@@ -4,7 +4,7 @@ KorGE provides a `DirectionalBlurFilter` that allows to specify a direction and 
 
 Demo preview:
 
-![Motion Blur](/i/motion-blur.webm)
+{% include autoplay_video.html src="/i/motion-blur.webm" %}
 
 Demo code:
 
