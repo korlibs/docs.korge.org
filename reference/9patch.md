@@ -5,6 +5,7 @@ layout: default
 title: 9-Patch
 fa-icon: fas fa-th
 priority: 35
+version_review: 5.3.0
 ---
 
 9-Patches (nine patches) allow to create images that can be resized without getting distorted. KorGE supports 9-patches images from intellij/android, 9-patches from AseSprite, and manually creating 9-patches from code.
