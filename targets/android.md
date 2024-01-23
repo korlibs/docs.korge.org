@@ -69,5 +69,10 @@ korge {
 
 	// Shortcut to change all of them at once
 	androidSdk(compileSdk = 28, minSdk = 16, targetSdk = 28)
+
+	// ...
+	targetAndroid()
 }
 ```
+
+> Important! You must set all the android-related properties like `androidMinSdk` BEFOre calling `targetAndroid()`
