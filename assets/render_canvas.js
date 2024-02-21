@@ -3,6 +3,7 @@ Object.prototype.also = function(block) {
     return this
 }
 
+/*
 const canvasData = {
 	"nodes":[
 		{"id":"b615b540f83c4859","type":"text","text":"## KorGE Targets","x":-280,"y":-215,"width":160,"height":75,"color":"4"},
@@ -41,6 +42,7 @@ const canvasData = {
 		{"id":"05da6c1b3b1eebe4","fromNode":"2ff9c3353553d2d7","fromSide":"right","toNode":"237ca2db2388ed2a","toSide":"left"}
 	]
 }
+*/
 
 /**
  * 
@@ -185,4 +187,18 @@ async function renderObsidianCanvasFromURL(url) {
     return renderObsidianCanvas(json)
 }
 
-//(async () => { document.querySelector("#test_container").appendChild(await renderObsidianCanvasFromURL("/roadmap/targets.canvas")) })()
+async function renderObsidianCanvasSelector(selector, url) {
+    document.querySelector(selector)
+        .appendChild(await renderObsidianCanvasFromURL(url))
+}
+
+// renderObsidianCanvasSelector("#test_container", "/roadmap/targets.canvas")
+    //(async () => { document.querySelector("#test_container").appendChild(await renderObsidianCanvasFromURL("/roadmap/targets.canvas")) })()
+
+
+document.addEventListener("DOMContentLoaded", async (event) => {
+    for (const node of document.querySelectorAll('[data-obsidian-canvas]')) {
+        const url = node.getAttribute('data-obsidian-canvas')
+        node.appendChild(await renderObsidianCanvasFromURL(url))
+    }
+});
