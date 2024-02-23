@@ -10,7 +10,7 @@ exclude:
   - ".vscode"
   - "@old"
 baseurl: ""
-url: "https://korlibs.soywiz.com"
+url: "https://docs.korge.org"
 edit_root_url: https://github.com/korlibs/docs.korge.org/blob/main/
 blog_url: ""
 project_url: https://github.com/korlibs
