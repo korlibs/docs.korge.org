@@ -9,6 +9,23 @@ priority: 10
 fa-icon: fa-gamepad
 ---
 
+{% include youtube.html video_id="R30yistp-jw" %}
+
+## 1. Install KorGE Forge
+
+KorGE Forge is the IDE for KorGE. You can install it by copy & pasting this command in your OS terminal:
+
+<div>
+{% include install_korge_forge.html %}
+</div>
+
+You will see something like:
+
+![](/getting-started/korge-forge-installer.png)
+
+Then press the `Install` button, and then the `Open` button. The installer is [OpenSource](https://github.com/korlibs/forge.korge.org/tree/main/src/main/kotlin/korge){:target=_blank}.
+
+<!--
 ## 1. Install IntelliJ IDEA
 
 ### Install JetBrains ToolBox
@@ -44,15 +61,17 @@ Or download the plugin from the [KorGE Plugin page](https://plugins.jetbrains.co
 
 ![](/i/korge-marketplace-plugin.avif)
 
-## 3. Create a Project
+-->
 
-### Install one of the starter kits or samples available using the `New Project...` Wizard:
+## 2. Create a Project
+
+**Install one of the starter kits or samples available using the `New Project...` Wizard:**
 
 You can select one of the `Starter Kits` or one of the `Showcases` with a full game:
 
 ![](/i/korge-new-project.avif)
 
-## 4. Access the KorGE Store
+## 3. Access the KorGE Store
 
 In order to access some KorGE features, you can install them via the KorGE Store.
 
@@ -66,7 +85,7 @@ Or when opening your `build.gradle.kts` or your `deps.kproject.yml`:
 
 ![](/i/jitto-korge-store2.avif)
 
-## 5. Running your code
+## 4. Running your code
 
 When creating a new project a new run configuration `runJvmAutoreload` should be available:
 

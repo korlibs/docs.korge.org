@@ -8,6 +8,7 @@ description: KorGE Game Engine is a Kotlin Open Source modern Game Engine create
 children: /korge/
 priority: -1
 fa-icon: fa-gamepad
+version_review: 2024.1
 redirect_from:
   - /korge/gettingstarted/
   - /
@@ -20,30 +21,32 @@ It works on
 <span title="JVM & K/N: Windows, MacOS Linux">**Desktop**</span>,
 <span title="JS & WASM (WIP)">**Web**</span> and 
 <span title="Android & iOS">**Mobile**</span>. 
-It is fully asynchronous, so it is also nice for the web.
+<!--It is fully asynchronous, so it is also nice for the web.-->
 
-It includes libraries for game development and other areas,
+<!--
+It includes a full IDE called [KorGE Forge](https://forge.korge.org/)
 an [asset & library store](https://store.korge.org/),
 starter kits,
 and an [IntellIJ plugin](https://plugins.jetbrains.com/plugin/9676-korge) to improve the workflow.
+-->
 
+<!--
 You can see a small presentation of KorGE here: <https://korge.org/>{:target="_blank"}
+-->
 
 {% include stars.html project="korge" central="com.soywiz.korlibs.korge.plugins/korge-gradle-plugin" %}
 
 <div style="clear:both;"></div>
 
-## Next Steps
+## ▶️ Getting Started
 
-Now that you have a working environment, let's explore other concepts.
-
-1. [Install the environment and run the Hello World](/getting-started/install/)
+1. <span style="font-size:1.2em;" markdown=1>**[🏡 Install KorGE Forge and run the Hello World](/getting-started/install/)**</span>
 2. Then build a more complex and realistic game with a [step-by-step tutorial to build a chess game](/tutorials/chess/).
 3. Finally, [deploy it in one of our supported platforms](/targets/).
 
 You can also explore the documentation or search for specific topics.
 
-## Asking Questions and Solving Doubts
+## ❓ Asking Questions and Solving Doubts
 
 You can ask questions in:
 
@@ -53,9 +56,7 @@ You can ask questions in:
 We have a nice and welcoming community! Feel free to drop in.
 
 
-
-
-
+<!--
 ## Tools:
 
 KorGE uses intelliJ as IDE + Gradle for building. You can check how to [set-up the environment here](/getting-started/install/).
@@ -69,3 +70,4 @@ KorGE uses intelliJ as IDE + Gradle for building. You can check how to [set-up t
 * You can target JVM Desktop and Android using Kotlin/JVM.
 * With JavaScript you can generate Web and PWA applications.
 * With Kotlin/Native you can generate native Windows, Linux, macOS executables, as well as native iOS applications.
+-->

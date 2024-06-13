@@ -1,0 +1,145 @@
+<div>
+    <style>
+        .codeblock pre>code,
+        pre {
+            background: #272935;
+        }
+
+        .codeblock figcaption {
+            display: grid;
+            width: 100%;
+            padding: 0;
+            background-color: #2b2e3b;
+            border-radius: 8px 8px 0 0;
+            grid-template-columns: min-content 1fr
+        }
+
+        .codeblock figcaption span {
+            padding-block-start: .2rem;
+            align-self: center;
+            font-size: 0.75em;
+            color: #fff;
+        }
+
+        .codeblock figcaption button {
+            align-self: end;
+            border: none;
+            border-radius: 8px;
+            margin: .4rem .5em;
+            font-size: .5em;
+            cursor: pointer;
+            justify-self: end;
+        }
+
+        .codeblock pre {
+            margin: 0;
+            /*      text-wrap: wrap;*/
+        }
+
+        .codeblock code {
+            padding: 4px;
+        }
+
+        .codeblock .btn.btn-primary {
+            box-shadow: 0 0 10px 3px rgba(0, 0, 255, 0.2);
+        }
+    </style>
+
+    <div>
+        <div>
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <ul class="nav nav-pills" id="osTabs" role="tablist">
+                            <li class="nav-item">
+                                <button type="button" role="tab" class="nav-link" id="windows-tab" data-bs-toggle="tab" data-bs-target="#windows"
+                                    aria-controls="windows" aria-selected="false">Windows</button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" role="tab" class="nav-link" id="unix-tab" data-bs-toggle="tab" data-bs-target="#unix"
+                                    aria-controls="linux" aria-selected="false">Mac / Linux</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="osTabsContent">
+                            <div class="tab-pane" style="padding:8px;" id="universal" role="tabpanel"
+                                aria-labelledby="universal-tab">
+                                <a class="btn btn-primary"
+                                    href="https://github.com/korlibs/forge.korge.org/releases/download/v0.1.1/korge-forge-installer.jar">
+                                    Download JAR installer (Java required)
+                                </a>
+                            </div>
+                            <div class="tab-pane" style="padding:8px;" id="windows" role="tabpanel"
+                                aria-labelledby="windows-tab">
+                                <figure class="codeblock">
+                                    <figcaption class="codeblock-toolbar" style="padding:4px 8px;">
+                                        <span class="codeblock-lang">Windows&nbsp;CMD&nbsp;Install&nbsp;Script</span>
+                                        <button type="button" class="btn btn-sm btn-primary" data-show="true"
+                                            data-target="#cmd-script"
+                                            onclick="const it = document.querySelector(this.dataset.target); navigator.clipboard.writeText(it.innerText); document.createRange().selectNode(it);">Copy
+                                            Code
+                                        </button>
+                                    </figcaption>
+                                    <pre id="cmd-script" class="language-bash"
+                                        style="padding:8px;color:white;"><code
+                                      class="language-bash">curl -s -L https://forge.korge.org/install-korge-forge.cmd -o "%APPDATA%\install-korge-forge.cmd" && "%APPDATA%\install-korge-forge.cmd"</code></pre>
+                                </figure>
+                            </div>
+                            <div class="tab-pane" style="padding:8px;" id="unix" role="tabpanel"
+                                aria-labelledby="linux-tab">
+                                <figure class="codeblock">
+                                    <figcaption class="codeblock-toolbar" style="padding:4px 8px;">
+                                        <span class="codeblock-lang">Mac/Linux&nbsp;SH&nbsp;Install&nbsp;Script</span>
+                                        <button type="button" class="btn btn-sm btn-primary" data-show="true"
+                                            data-target="#bash-script"
+                                            onclick="const it = document.querySelector(this.dataset.target); navigator.clipboard.writeText(it.innerText); document.createRange().selectNode(it);">Copy
+                                            Code
+                                        </button>
+                                    </figcaption>
+                                    <pre id="bash-script" class="language-bash"
+                                        style="padding:8px;color:white;"><code
+                                      class="language-bash">sh -c "$(curl -fsSL https://raw.githubusercontent.com/korlibs/korge-forge-installer/main/install-korge-forge.sh)"</code></pre>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getOS() {
+            var userAgent = window.navigator.userAgent,
+                platform = window.navigator.platform,
+                macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+                windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+                iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+                os = null;
+
+            if (macosPlatforms.indexOf(platform) !== -1) {
+                os = 'Mac';
+            } else if (iosPlatforms.indexOf(platform) !== -1) {
+                os = 'iOS';
+            } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                os = 'Windows';
+            } else if (/Android/.test(userAgent)) {
+                os = 'Android';
+            } else if (!os && /Linux/.test(platform)) {
+                os = 'Linux';
+            }
+
+            return os;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                var os = getOS();
+                if (os === 'Windows') {
+                    ('#windows-tab').click()
+                } else if (os === 'Linux' || os === 'Mac') {
+                    $('#unix-tab').click()
+                }
+            }, 100);
+        });
+    </script>
+</div>

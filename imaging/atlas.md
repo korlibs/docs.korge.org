@@ -102,7 +102,7 @@ val atlas: Atlas = mutableAtlas.toImmutable()
 
 The AtlasLookup interface serves for getting `Atlas.Entry` elements by name.
 
-```kotlin-
+```kotlin
 interface AtlasLookup {
     // Main interface method
     fun tryGetEntryByName(name: String): Atlas.Entry?
