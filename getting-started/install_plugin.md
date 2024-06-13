@@ -4,13 +4,12 @@ group: getting-started
 layout: default
 title: Install KorGE IntelliJ Plugin
 title_short: Install Plugin
+description: In addition to KorGE Forge, you can also install Korge as an IntelliJ IDEA plugin.
 children: /korge/
 priority: 10
 fa-icon: fa-gamepad
 version_review: 2024.1
 ---
-
-In addition to KorGE Forge, you can also install Korge as an IntelliJ IDEA plugin.
 
 ## 1. Install IntelliJ IDEA
 

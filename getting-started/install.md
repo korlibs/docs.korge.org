@@ -4,6 +4,7 @@ group: getting-started
 layout: default
 title: Install KorGE
 title_short: Install
+description: KorGE Forge is the IDE for KorGE
 children: /korge/
 priority: 10
 fa-icon: fa-gamepad
