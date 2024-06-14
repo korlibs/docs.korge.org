@@ -8,7 +8,6 @@ description: KorIM support several Bitmap formats and operations.
 fa-icon: fa-image
 priority: 10
 ---
-
 ## Bitmap
 
 `Bitmap` is an abstract class used to represent images, as a bidimensional matrix with a set of RGBA pixels.
@@ -470,7 +469,7 @@ val newBitmap = bitmap.applyEffect(effect)
 ```
 
 
-## BitmapSlice<T>, BmpSlice and BmpCoords
+## `BitmapSlice<T>`, BmpSlice and BmpCoords
 
 The `BmpSlice` class is used to declare a region inside a `Bitmap`. There is a typed subtype called `BitmapSlice<TBitmap>`, and there is an interface implementd by them called `BmpCoords` that is used maily for textures.
 
@@ -529,7 +528,7 @@ val subBmpSlice = bmpSlice.sliceWithSize(x, y, width, height)
 val subBmpSlice = bmpSlice.sliceWithBounds(left, top, right, bottom)
 ```
 
-### Splitting a BitmapSlice<T> in an array of smaller slices
+### Splitting a `BitmapSlice<T>` in an array of smaller slices
 
 For example, when we have a bitmap representing TileSet, with regions of a specified size, we want to create an arbitrary number of slices of an specified size.
 
