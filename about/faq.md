@@ -91,27 +91,25 @@ implementation("com.soywiz.korlibs.klock:klock-jvm:4.0.6") {
 ## Artifacts can't be resolved
 {:#unresolved}
 
+### Where's the old KorGE plugin for Intellij?
+{:#old-intellij-plugin}
+
+The plugin got outdated and replaced by the KorGE Forge Plugin. The old version of the IntelliJ plugin can be found here:
+
+<https://github.com/korlibs/korge-intellij-plugin/releases/download/v4.0.4/KorgePlugin-4.0.4.zip>
+
 ### How can I update KorGE version?
 {:#update-korge}
 
-KorGE has several products:
+KorGE has several products. Each product has its own versioning.
 
-* [IntelliJ Plugin](https://plugins.jetbrains.com/plugin/9676-korge/versions)
-* [Gradle Plugin](https://central.sonatype.com/artifact/com.soywiz.korlibs.korge.plugins/korge-gradle-plugin/)
-* [KProject Plugin](https://central.sonatype.com/artifact/com.soywiz.kproject.settings/com.soywiz.kproject.settings.gradle.plugin/)
-* [Libraries](https://central.sonatype.com/artifact/com.soywiz.korlibs.korge2/korge/)
-
-Each product has its own versioning.
-
-IntelliJ updates the KorGE plugin automatically.
-
-Typically, the version you want to update is the `Gradle Plugin`.
+Typically, the version you want to update is the `Gradle Plugin` / `Library Version`.
 
 To update KorGE Gradle Plugin, check the `gradle/libs.versions.toml` file:
 
 ```toml
 [plugins]
-korge = { id = "com.soywiz.korge", version = "4.0.6" }
+korge = { id = "com.soywiz.korge", version = "6.0.0-beta3" }
 ```
 
 or the `build.gradle.kts`:
@@ -217,20 +215,6 @@ Can you listen it here:
 <audio controls="controls">
  <source src="/i/sound/korge.mp3" />
 </audio>
-
-## Where are the old Korlibs4 libraries?
-
-Starting with KorGE 5.0, for convenience and focus, the old Korlibs are now
-integrated into the  `korge`, `korge-core` and `korge-foundation` artifacts.
-The code is still there, except for some package renames.
-
-You can find the old code and structure there:
-
-* Docs: <https://korlibs4.soywiz.com/>
-* Code: <https://github.com/korlibs/korlibs4>
-
-The community can contribute via PR to the repo and maintain the libraries
-supporting new targets, new Kotlin versions, fixing bugs, documenting etc.
 
 ## Where's the privacy page
 
