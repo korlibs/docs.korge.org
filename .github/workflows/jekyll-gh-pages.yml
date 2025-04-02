@@ -22,7 +22,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  test:
+  build:
     timeout-minutes: 240
     runs-on: ubuntu-latest
     env:
@@ -33,32 +33,5 @@ jobs:
       - { name: Setup Pages, uses: actions/configure-pages@v3 }
       - { name: Build with Jekyll, uses: actions/jekyll-build-pages@v1, with: { source: ./, destination: ./_site } }
       - { name: Check broken links, run: "npx --yes broken-link-checker-local _site --filter-level=3 -e -r" }
-
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
+      - { name: Upload artifact, uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa }
+      - { name: Deploy to GitHub Pages, uses: actions/deploy-pages@v1, with: { folder: ./_site } }
