@@ -963,10 +963,6 @@
     background-color: transparent
 }
 
-.bd-masthead #carbonads {
-    margin-inline: auto
-}
-
 @media (min-width: 768px) {
     .bd-masthead .lead {
         font-size: calc(1.275rem + .3vw)
@@ -1027,41 +1023,6 @@
 
 [data-bs-theme="dark"] .masthead-followup-icon {
     mix-blend-mode: lighten
-}
-
-#carbonads {
-    position: static;
-    display: block;
-    max-width: 400px;
-    padding: 15px 15px 15px 160px;
-    margin: 2rem 0;
-    overflow: hidden;
-    font-size: .8125rem;
-    line-height: 1.4;
-    text-align: left;
-    background-color: var(--bs-tertiary-bg)
-}
-
-#carbonads a {
-    color: var(--bs-body-color);
-    text-decoration: none
-}
-
-@media (min-width: 576px) {
-    #carbonads {
-        border-radius: .5rem
-    }
-}
-
-.carbon-img {
-    float: left;
-    margin-left: -145px
-}
-
-.carbon-poweredby {
-    display: block;
-    margin-top: .75rem;
-    color: var(--bs-body-color) !important
 }
 
 .bd-content > h2, .bd-content > h3, .bd-content > h4 {
