@@ -30,6 +30,22 @@ These pages are deployed to Cloudflare Pages.
 
 Each commit here will deploy the page to Github pages and available at docs.korge.org
 
+## store.korge.org
+
+Here's where all the libraries and assets are published. Source code is here <https://github.com/korlibs/store.korge.org>
+They are provided as jekyll pages.
+
+Library examples:
+* <https://github.com/korlibs/korge-k3d>
+* <https://github.com/korlibs/korge-ext>
+
+Usually a library has an example project in the root, then one or more modules that have a `kproject.yml` file inside, then in the example root folder, there is a `deps.kproject.yml` referencing the folder-based modules.
+
+These libraries are used in source form directly. They are referenced typically in the `deps.kproject.yml` in KorGE projects via URL and version.
+To publish new versions, just create a tag with the version.
+
+To update all the versions in the store (newly created tags in existing repos), you can manually trigger this workflow: <https://github.com/korlibs/store.korge.org/actions/workflows/updateall.yml> (this will download all the repos, search for tags, dates and associated KorGE versions and redeploy the store static files)
+
 ## IDE (KorGE Forge) forge.korge.org
 
 * KorGE Forge Installer: <https://github.com/korlibs/forge.korge.org> available in each commit to forge.korge.org
