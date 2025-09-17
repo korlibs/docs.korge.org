@@ -21,7 +21,7 @@ KorGE Forge is the IDE for KorGE. You can install it by copy & pasting this comm
 {% include install_korge_forge.html %}
 </div>
 
-You will see something like:
+You will see something like this on Linux / Mac, on Windows you can open Forge directly:
 
 ![](/getting-started/korge-forge-installer.png)
 

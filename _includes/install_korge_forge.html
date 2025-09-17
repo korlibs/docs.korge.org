@@ -64,29 +64,33 @@
                             <div class="tab-pane" style="padding:8px;" id="universal" role="tabpanel"
                                 aria-labelledby="universal-tab">
                                 <a class="btn btn-primary"
-                                    href="https://github.com/korlibs/forge.korge.org/releases/download/v0.1.1/korge-forge-installer.jar">
+                                    href="https://github.com/korlibs/forge.korge.org/releases/download/v2025.2.1/korge-forge-installer.jar">
                                     Download JAR installer (Java required)
                                 </a>
                             </div>
                             <div class="tab-pane" style="padding:8px;" id="windows" role="tabpanel"
                                 aria-labelledby="windows-tab">
-                                <div style="margin-bottom: 16px;">
-                                    Press <kbd>win+r</kbd>, then type <code>cmd</code> and press return, then copy and paste the command from below in the opened window and press return again. This will open the installer.
-                                </div>
-    
-                                <figure class="codeblock">
-                                    <figcaption class="codeblock-toolbar" style="padding:4px 8px;">
-                                        <span class="codeblock-lang">Windows&nbsp;CMD&nbsp;Install&nbsp;Script</span>
-                                        <button type="button" class="btn btn-sm btn-primary" data-show="true"
-                                            data-target="#cmd-script"
-                                            onclick="const it = document.querySelector(this.dataset.target); navigator.clipboard.writeText(it.innerText); document.createRange().selectNode(it);">Copy
-                                            Code
-                                        </button>
-                                    </figcaption>
-                                    <pre id="cmd-script" class="language-bash"
-                                        style="padding:8px;"><code
-                                      class="language-bash" style="color:white;">cd "%USERPROFILE%/Downloads" & curl -sLO https://forge.korge.org/install-korge-forge.cmd && install-korge-forge.cmd</code></pre>
-                                </figure>
+                                <a class="btn btn-primary d-block mb-2"
+
+
+                                    href="https://github.com/korlibs/intellij-community/releases/download/forge-2025.2.1/korgeforge-252.25557.SNAPSHOT.exe">
+
+
+                                    Download Windows amd64 (.exe) installer
+
+
+                                </a>
+                                <a class="btn btn-primary d-block"
+
+
+                                    href="https://github.com/korlibs/intellij-community/releases/download/forge-2025.2.1/korgeforge-252.25557.SNAPSHOT-aarch64.exe">
+
+
+                                    Download Windows arm64 (.exe) installer
+
+
+                                </a>
+                                
                             </div>
                             <div class="tab-pane" style="padding:8px;" id="unix" role="tabpanel"
                                 aria-labelledby="linux-tab">
