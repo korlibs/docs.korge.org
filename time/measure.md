@@ -13,30 +13,7 @@ Klock has utilities for mesuring time.
 
 ## Measuring Time
 
-As for Klock 1.0, there are two relevant functionality: the `measureTime`, `measureTimeWithResult` functions and the `PerformanceCounter` class.
-
-### measureTime
-
-This function is inline and allocation-free, and can be used for expensive computations as well as for asynchronous blocks:
-
-```kotlin
-val time: TimeSpan = measureTime {
-    // expensive or asynchronous computation
-}
-```
-
-### measureTimeWithResult
-
-This function is inline but it allocates a TimedResult instance, so it is not suitable for critical places, but allows to return a result along the time:
-
-```kotlin
-val timedResult: TimedResult<String> = measureTimeWithResult {
-    // expensive or asynchronous computation
-    "result"
-}
-val time: TimeSpan = timedResult.time
-val result: String = timedResult.result
-```
+As of now, most Klock features have been deprecated in favor of the standard library `kotlin.time`.
 
 ### PerformanceCounter
 
